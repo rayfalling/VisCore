@@ -20,6 +20,7 @@ set("VIS_CORE_CLASSES_DIR" ${CMAKE_CURRENT_SOURCE_DIR}/Classes)
 include_directories(${VIS_CORE_CLASSES_DIR}/)
 file(GLOB_RECURSE VIS_CORE_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/Include/* ${CMAKE_CURRENT_SOURCE_DIR}/Classes/*)
 aux_source_directory(Source VIS_CORE_SOURCE)
+aux_source_directory(Source/Buffer VIS_CORE_SOURCE)
 
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${VIS_CORE_INCLUDE} ${VIS_CORE_SOURCE})
 
@@ -49,3 +50,21 @@ endif(BUILD_SHARED_LIBS)
 set_target_properties(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX)
 set_target_properties(${PROJECT_NAME} PROPERTIES FOLDER VisCore/Core)
 
+# --------------- Test --------------
+
+set("VIS_CORE_TEST_INCLUDE_DIR" ${CMAKE_CURRENT_SOURCE_DIR}/Test/Include)
+include_directories(${VIS_CORE_TEST_INCLUDE_DIR}/)
+file(GLOB_RECURSE VIS_CORE_TEST_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/Test/Include/*)
+aux_source_directory(Test/Source VIS_CORE_TEST_SOURCE)
+
+# add executable before include library for test use
+add_executable(${PROJECT_NAME}Test ${VIS_CORE_TEST_INCLUDE} ${VIS_CORE_TEST_SOURCE})
+set_target_properties(${PROJECT_NAME}Test PROPERTIES OUTPUT_NAME "VisCore.Test")
+
+set_target_properties(${PROJECT_NAME}Test PROPERTIES LINKER_LANGUAGE CXX)
+set_target_properties(${PROJECT_NAME}Test PROPERTIES FOLDER VisCore/Test/)
+
+# expose include headers
+target_include_directories(${PROJECT_NAME}Test PUBLIC ${VIS_CORE_INCLUDE_DIR})
+
+target_link_libraries(${PROJECT_NAME}Test ${PROJECT_NAME})
