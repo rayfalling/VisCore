@@ -207,6 +207,10 @@ IBufferPtr StreamingBuffer::CreateBufferCopy(const BufferType type, const int le
 	return CreateBuffer(type, Data.get(), size);
 }
 
+IStreaming* StreamingBuffer::GetStreaming() {
+	return this;
+}
+
 size_t StreamingBuffer::Tell() const {
 	return Position;
 }

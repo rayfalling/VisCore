@@ -214,3 +214,7 @@ IBufferPtr DynamicBuffer::CreateBufferCopy(const BufferType type, const int leng
 	const auto size = length == -1 || length > Size ? Size : length;
 	return CreateBuffer(type, Data.data(), size);
 }
+
+IStreaming* DynamicBuffer::GetStreaming() {
+	return nullptr;
+}

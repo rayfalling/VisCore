@@ -32,8 +32,8 @@ void TestBuffer() {
 	std::cout << "Buffer Data: " << buffer->GetData() << std::endl;
 
 	std::cout << "Test Dynamic Buffer......" << std::endl;
-	const auto buffer1 = CreateBuffer(VisCore::BufferType::Dynamic, "测试数据11", strlen("测试数据11"));
-	const auto buffer2 = CreateBuffer(VisCore::BufferType::Dynamic, "测试数据22", strlen("测试数据22"));
+	const auto buffer1 = VisCore::IBuffer::Create(VisCore::BufferType::Dynamic, "测试数据11", strlen("测试数据11"));
+	const auto buffer2 = VisCore::IBuffer::Create(VisCore::BufferType::Dynamic, "测试数据22", strlen("测试数据22"));
 	std::cout << "Buffer Data: " << buffer1->GetData() << std::endl;
 	std::cout << "Buffer Data: " << buffer2->GetData() << std::endl;
 
@@ -50,7 +50,7 @@ void TestBuffer() {
 	const auto  bufferStreaming = CreateBuffer(VisCore::BufferType::Streaming, streamingData, strlen(streamingData));
 
 	std::cout << "Buffer Data: " << bufferStreaming->GetData() << std::endl;
-	auto streaming = dynamic_cast<VisCore::IStreaming*>(bufferStreaming.get());
+	auto* streaming = bufferStreaming.get()->GetStreaming();
 	std::cout << "Streaming Tell: " << streaming->Tell() << std::endl;
 	std::cout << "Streaming Seek End: " << streaming->Seek(0, VisCore::SeekMode::SeekEnd) << std::endl;
 	std::cout << "Streaming IsEOF: " << streaming->IsEof() << std::endl;
@@ -64,7 +64,7 @@ void TestBuffer() {
 	try {
 		(*bufferRead)[12];
 		std::cout << "Detect Buffer Access Out of Range Failed" << std::endl;
-		
+
 	} catch (std::out_of_range) {
 		std::cout << "Detect Buffer Access Out of Range Success" << std::endl;
 	}

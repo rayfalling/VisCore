@@ -208,3 +208,7 @@ IBufferPtr ConstraintBuffer::CreateBufferCopy(const BufferType type, const int l
 	const auto size = length == -1 || length > Size ? Size : length;
 	return CreateBuffer(type, Data, size);
 }
+
+IStreaming* ConstraintBuffer::GetStreaming() {
+	return nullptr;
+}

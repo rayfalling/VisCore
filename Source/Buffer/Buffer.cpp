@@ -54,3 +54,11 @@ IBufferPtr VisCore::CreateBuffer(const BufferType type, const char* ptr, const s
 
 	return buffer;
 }
+
+IBufferPtr IBuffer::Create(const BufferType type, const size_t size, const char initData) {
+	return CreateBuffer(type, size, initData);
+}
+
+IBufferPtr IBuffer::Create(const BufferType type, const char* ptr, const size_t size) {
+	return CreateBuffer(type, ptr, size);
+}

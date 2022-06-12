@@ -98,7 +98,7 @@ namespace VisCore {
 		BufferType GetType() override;
 
 		/**
-		 * \brief init buffer by given data ptr and size
+		 * \brief init buffer by given data and size
 		 * \param size Buffer size
 		 * \param initData data to fill
 		 */
@@ -191,6 +191,12 @@ namespace VisCore {
 		 * \return IBufferPtr
 		 */
 		IBufferPtr CreateBufferCopy(BufferType type, int length = -1) const override;
+
+		/**
+		 * \brief Get buffer Streaming Interface(Constraint/Dynamic will return nullptr)
+		 * \return IStreaming class
+		 */
+		IStreaming* GetStreaming() override;
 
 	private:
 		/**
