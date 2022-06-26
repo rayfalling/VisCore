@@ -111,14 +111,14 @@ namespace VisCore::Buffer {
 		virtual BufferType GetType() = 0;
 
 		/**
-		 * \brief init buffer by given data and size
+		 * \brief Init buffer by given data and size
 		 * \param size Buffer size
 		 * \param initData data to fill
 		 */
 		virtual void InitBuffer(size_t size, char initData) = 0;
 
 		/**
-		 * \brief init buffer by given data ptr and size
+		 * \brief Init buffer by given data ptr and size
 		 * \param ptr data ptr
 		 * \param size Buffer size
 		 */
@@ -212,7 +212,7 @@ namespace VisCore::Buffer {
 		virtual Streaming::IStreaming* GetStreaming() = 0;
 
 		/**
-		 * \brief create buffer by given data and size
+		 * \brief Create buffer by given data and size
 		 * \param type buffer type
 		 * \param size buffer size
 		 * \param initData data to fill
@@ -220,7 +220,7 @@ namespace VisCore::Buffer {
 		 */
 		static IBufferPtr Create(BufferType type, size_t size, char initData);
 		/**
-		 * \brief create buffer by given data ptr and size
+		 * \brief Create buffer by given data ptr and size
 		 * \param type buffer type
 		 * \param ptr  data ptr
 		 * \param size buffer size

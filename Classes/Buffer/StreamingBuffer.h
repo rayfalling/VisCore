@@ -15,7 +15,7 @@
 
 namespace VisCore::Buffer {
 	/**
-	 * \brief Const Buffer class, Alloc only once, Disallow Append()/Insert(), Allow Update()
+	 * \brief StreamingBuffer, Alloc only once, Disallow Append()/Insert(), Allow Update()
 	 */
 	class StreamingBuffer : public IBuffer, public Streaming::IStreaming {
 	public:

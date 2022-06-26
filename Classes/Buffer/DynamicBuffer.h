@@ -14,7 +14,7 @@
 
 namespace VisCore::Buffer {
 	/**
-	 * \brief Const Buffer class, Alloc dynamic, Allow Append()/Insert()/Update()
+	 * \brief DynamicBuffer, Alloc dynamic, Allow Append()/Insert()/Update()
 	 */
 	class DynamicBuffer : public IBuffer {
 	public:
