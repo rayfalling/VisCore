@@ -20,7 +20,7 @@ void TestBuffer() {
 	#endif
 	std::cout << "Test Constraint Buffer Get Function......" << std::endl;
 
-	const auto buffer = CreateBuffer(VisCore::BufferType::Constraint, 200, '1');
+	const auto buffer = CreateBuffer(VisCore::Buffer::BufferType::Constraint, 200, '1');
 
 	std::cout << "Buffer Data: " << buffer->GetData() << std::endl;
 	std::cout << "Buffer Size: " << buffer->GetLength() << std::endl;
@@ -32,8 +32,8 @@ void TestBuffer() {
 	std::cout << "Buffer Data: " << buffer->GetData() << std::endl;
 
 	std::cout << "Test Dynamic Buffer......" << std::endl;
-	const auto buffer1 = VisCore::IBuffer::Create(VisCore::BufferType::Dynamic, "测试数据11", strlen("测试数据11"));
-	const auto buffer2 = VisCore::IBuffer::Create(VisCore::BufferType::Dynamic, "测试数据22", strlen("测试数据22"));
+	const auto buffer1 = VisCore::Buffer::IBuffer::Create(VisCore::Buffer::BufferType::Dynamic, "测试数据11", strlen("测试数据11"));
+	const auto buffer2 = VisCore::Buffer::IBuffer::Create(VisCore::Buffer::BufferType::Dynamic, "测试数据22", strlen("测试数据22"));
 	std::cout << "Buffer Data: " << buffer1->GetData() << std::endl;
 	std::cout << "Buffer Data: " << buffer2->GetData() << std::endl;
 
@@ -47,15 +47,15 @@ void TestBuffer() {
 
 	std::cout << "Test Streaming Buffer......" << std::endl;
 	const char* streamingData = "这是Streaming测试数据";
-	const auto  bufferStreaming = CreateBuffer(VisCore::BufferType::Streaming, streamingData, strlen(streamingData));
+	const auto  bufferStreaming = CreateBuffer(VisCore::Buffer::BufferType::Streaming, streamingData, strlen(streamingData));
 
 	std::cout << "Buffer Data: " << bufferStreaming->GetData() << std::endl;
 	auto* streaming = bufferStreaming.get()->GetStreaming();
 	std::cout << "Streaming Tell: " << streaming->Tell() << std::endl;
-	std::cout << "Streaming Seek End: " << streaming->Seek(0, VisCore::SeekMode::SeekEnd) << std::endl;
+	std::cout << "Streaming Seek End: " << streaming->Seek(0, VisCore::Streaming::SeekMode::SeekEnd) << std::endl;
 	std::cout << "Streaming IsEOF: " << streaming->IsEof() << std::endl;
 
-	const auto bufferRead = CreateBuffer(VisCore::BufferType::Constraint, 10, 0);
+	const auto bufferRead = CreateBuffer(VisCore::Buffer::BufferType::Constraint, 10, 0);
 	std::cout << "Streaming Seek: " << streaming->Seek(6) << std::endl;
 	streaming->Read(bufferRead.get(), 9);
 	std::cout << "Streaming Read: " << bufferRead->GetData() << std::endl;

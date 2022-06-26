@@ -15,8 +15,12 @@
 #include "VisCoreExport.generate.h"
 
 namespace VisCore {
-	class IStreaming;
+	namespace Streaming {
+		class IStreaming;
+	}
+}
 
+namespace VisCore::Buffer {
 	class IBuffer;
 	typedef std::shared_ptr<IBuffer> IBufferPtr;
 
@@ -205,7 +209,7 @@ namespace VisCore {
 		 * \brief Get buffer Streaming Interface(Constraint/Dynamic will return nullptr)
 		 * \return IStreaming ptr
 		 */
-		virtual IStreaming* GetStreaming() = 0;
+		virtual Streaming::IStreaming* GetStreaming() = 0;
 
 		/**
 		 * \brief create buffer by given data and size

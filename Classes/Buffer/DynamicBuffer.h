@@ -12,7 +12,7 @@
 #ifndef VISCORE_BUFFER_DYNAMIC_H
 #define VISCORE_BUFFER_DYNAMIC_H
 
-namespace VisCore {
+namespace VisCore::Buffer {
 	/**
 	 * \brief Const Buffer class, Alloc dynamic, Allow Append()/Insert()/Update()
 	 */
@@ -198,7 +198,7 @@ namespace VisCore {
 		 * \brief Get buffer Streaming Interface(Constraint/Dynamic will return nullptr)
 		 * \return IStreaming class
 		 */
-		IStreaming* GetStreaming() override;
+		Streaming::IStreaming* GetStreaming() override;
 
 	private:
 		/**

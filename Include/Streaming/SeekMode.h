@@ -8,7 +8,7 @@
 #define VISCORE_SEEK_MODE_H
 #include "VisCoreExport.generate.h"
 
-namespace VisCore {
+namespace VisCore::Streaming {
 	/**
 	 * \brief Seek mode
 	 */

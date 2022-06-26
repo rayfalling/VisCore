@@ -7,7 +7,8 @@
 #include <stdexcept>
 
 using namespace std;
-using namespace VisCore;
+using namespace VisCore::Buffer;
+using namespace VisCore::Streaming;
 
 DynamicBuffer::DynamicBuffer() : Data(0), Size(0) {
 }

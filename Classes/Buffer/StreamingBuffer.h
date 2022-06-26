@@ -13,11 +13,11 @@
 #ifndef VISCORE_BUFFER_STREAMING_H
 #define VISCORE_BUFFER_STREAMING_H
 
-namespace VisCore {
+namespace VisCore::Buffer {
 	/**
 	 * \brief Const Buffer class, Alloc only once, Disallow Append()/Insert(), Allow Update()
 	 */
-	class StreamingBuffer : public IBuffer, public IStreaming {
+	class StreamingBuffer : public IBuffer, public Streaming::IStreaming {
 	public:
 		StreamingBuffer();
 		~StreamingBuffer() override;
@@ -224,7 +224,7 @@ namespace VisCore {
 		 * \return new absolute position, if seek failed return -1
 		 */
 		[[maybe_unused]]
-		size_t Seek(int64_t offset, SeekMode seekMode = SeekMode::SeekSet) override;
+		size_t Seek(int64_t offset, Streaming::SeekMode seekMode = Streaming::SeekMode::SeekSet) override;
 
 		/**
 		 * \brief Get if stream read to end

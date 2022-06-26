@@ -11,9 +11,7 @@
 #include "SeekMode.h"
 #include "VisCoreExport.generate.h"
 
-namespace VisCore {
-	class IBuffer;
-
+namespace VisCore::Streaming {
 	/**
 	 * \brief Streaming Class Interface
 	 */
@@ -35,7 +33,7 @@ namespace VisCore {
 		 * \return Size successfully read
 		 */
 		[[maybe_unused]]
-		virtual size_t Read(IBuffer* buffer, size_t length) = 0;
+		virtual size_t Read(Buffer::IBuffer* buffer, size_t length) = 0;
 
 		/**
 		 * \brief Seek to position

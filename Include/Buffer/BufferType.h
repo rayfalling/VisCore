@@ -12,7 +12,7 @@
 
 #include "VisCoreExport.generate.h"
 
-namespace VisCore {
+namespace VisCore::Buffer {
 	/**
 	 * \brief Buffer type enum for buffer
 	 */

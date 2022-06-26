@@ -11,7 +11,7 @@
 using namespace std;
 using namespace VisCore;
 
-IBufferPtr VisCore::CreateBuffer(const BufferType type, const size_t size, const char initData) {
+Buffer::IBufferPtr Buffer::CreateBuffer(const BufferType type, const size_t size, const char initData) {
 	IBufferPtr buffer;
 	switch (type) {
 		case BufferType::Constraint:
@@ -33,7 +33,7 @@ IBufferPtr VisCore::CreateBuffer(const BufferType type, const size_t size, const
 	return buffer;
 }
 
-IBufferPtr VisCore::CreateBuffer(const BufferType type, const char* ptr, const size_t size) {
+Buffer::IBufferPtr Buffer::CreateBuffer(const BufferType type, const char* ptr, const size_t size) {
 	IBufferPtr buffer;
 	switch (type) {
 		case BufferType::Constraint:
@@ -55,10 +55,10 @@ IBufferPtr VisCore::CreateBuffer(const BufferType type, const char* ptr, const s
 	return buffer;
 }
 
-IBufferPtr IBuffer::Create(const BufferType type, const size_t size, const char initData) {
+Buffer::IBufferPtr Buffer::IBuffer::Create(const BufferType type, const size_t size, const char initData) {
 	return CreateBuffer(type, size, initData);
 }
 
-IBufferPtr IBuffer::Create(const BufferType type, const char* ptr, const size_t size) {
+Buffer::IBufferPtr Buffer::IBuffer::Create(const BufferType type, const char* ptr, const size_t size) {
 	return CreateBuffer(type, ptr, size);
 }
